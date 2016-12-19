@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Scanner;
+
 public class Main {
 
     private static int loop(int num) {
@@ -8,7 +10,7 @@ public class Main {
         }
         int total = 1;
         for (int i = num; i > 1; i--) {
-            System.out.println(total);
+            //System.out.println(total);
             total = i * total;
         }
         return total;
@@ -19,8 +21,8 @@ public class Main {
             return total;
         }
         total = num * total;
-        System.out.println("num recur" + num);
-        System.out.println("total recur" +total);
+        //System.out.println("num recur" + num);
+        //System.out.println("total recur" +total);
         return recursive((num - 1), total);
     }
 
@@ -29,15 +31,28 @@ public class Main {
             return 0;
         if (num == 1)
             return 1;
-        System.out.println("fact num" + num);
+        //System.out.println("fact num" + num);
         return recursive(num, 1);
     }
 
     public static void main(String[] args) {
-        int num = 3;
-        System.out.println(loop(num));
+        //int num = 3;
+        //System.out.println(loop(num));
 
-        System.out.println(factorial(num));
+        //System.out.println(factorial(num));
+
+        Scanner s = null;
+        try {
+            s = new Scanner(System.in);
+            System.out.println("input number");
+            while (s.hasNextInt()){
+                System.out.println(factorial(s.nextInt()));
+            }
+        } finally {
+            if(s != null){
+                s.close();
+            }
+        }
     }
 }
 
